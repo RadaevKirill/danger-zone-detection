@@ -1,6 +1,4 @@
 from abc import ABC
-from pathlib import Path
-from typing import Optional
 
 from utlis.models import Image, Detections
 

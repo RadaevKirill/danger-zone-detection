@@ -1,0 +1,14 @@
+
+analytics:
+  _target_: main.Controller
+  decoder:
+    _target_: modules.decoders.opencv_decoder.OpenCVDecoder
+    video_path: './assets/test.mp4'
+    video_fps: 24
+  detector:
+    _target_: modules.detector.yolo_detector.YoloDetector
+    model_path: './assets/yolo11n.pt'
+    threshold: 0.7
+  visualizer:
+    _target_: modules.visualizers.opencv_visualizer.OpenCVVisualizer
+
