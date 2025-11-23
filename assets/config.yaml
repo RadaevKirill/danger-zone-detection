@@ -11,4 +11,6 @@ analytics:
     threshold: 0.7
   visualizer:
     _target_: modules.visualizers.opencv_visualizer.OpenCVVisualizer
-
+  heuristic:
+    _target_: modules.heuristics.zone_heuristic.ZoneHeuristic
+    zone_configs_path: './assets/restricted_zones.json'
