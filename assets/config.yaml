@@ -14,3 +14,7 @@ analytics:
   heuristic:
     _target_: modules.heuristics.zone_heuristic.ZoneHeuristic
     zone_configs_path: './assets/restricted_zones.json'
+  painter:
+    _target_: modules.painters.opencv_painter.OpenCVPainter
+    zone_configs_path: ${analytics.heuristic.zone_configs_path}
+    time_to_hide: 3

@@ -15,24 +15,21 @@ class Controller:
             decoder: Decoder,
             detector: Detector,
             heuristic: Heuristic,
-            # painter: Painter,
-            # tracker: Tracker,
+            painter: Painter,
             visualizer: Visualizer
     ):
         self._decoder = decoder
         self._detector = detector
         self._heuristic = heuristic
-        # self._painter = painter
-        # self._tracker = tracker
+        self._painter = painter
         self._visualizer = visualizer
 
     def run(self):
-        for image in self._decoder.decode():
+        for image, num_frame, timestamp in self._decoder.decode():
             detections = self._detector.detect(image)
-            # tracks = self._tracker.track(detections)
-            inzone = self._heuristic.analyze(detections)
-            # image = self._painter.paint(image, tracks, inzone)
-            # self._visualizer.visualize(image)
+            in_zone = self._heuristic.analyze(detections)
+            image = self._painter.paint(image, detections, in_zone, timestamp)
+            self._visualizer.visualize(image)
 
 
 @hydra.main(config_path='assets', config_name='config', version_base='1.3.2')

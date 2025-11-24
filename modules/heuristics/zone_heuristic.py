@@ -1,7 +1,9 @@
 import json
+from typing import List
+
 from shapely import Point, Polygon
 
-from utlis.models import Image, Detection, Detections, Box, Point
+from utlis.models import Detections
 from interfaces.heuristics import Heuristic
 
 
@@ -14,11 +16,13 @@ class ZoneHeuristic(Heuristic):
             self._polygon = Polygon([[p['x'], p['y']] for p in self._zones])
 
     def analyze(self, detections: Detections) -> Detections:
-        inzone = []
+        in_zone = []
         
         for det in detections:
-            if self._polygon.contains(Point(det.absolute_box.center)):
-                inzone.append(det)
+            if self._polygon.contains(Point(det.absolute_box.center.as_tuple)):
+                in_zone.append(det)
 
-        return inzone
-            
+        return in_zone
+
+    def get_zone(self) -> List[List[int]]:
+        return [[p['x'], p['y']] for p in self._zones]
