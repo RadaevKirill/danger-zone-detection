@@ -28,6 +28,6 @@ class OpenCVPainter(Painter):
             self._last_alarm = timestamp
 
         if timestamp - self._last_alarm <= 3:
-            cv2.putText(image, 'alarm!', (50, 200), cv2.FONT_HERSHEY_SIMPLEX, 2, (255, 0, 0), 2)
+            cv2.putText(image, 'alarm!', (50, 200), cv2.FONT_HERSHEY_SIMPLEX, 2, (0, 0, 255), 2)
 
         return image
