@@ -1,7 +1,6 @@
 from abc import ABC
-from typing import Optional
 
-from utlis.models import Image, Tracks, Detections
+from utlis.models import Image, Detections
 
 class Painter(ABC):
 

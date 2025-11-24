@@ -7,7 +7,7 @@ analytics:
     video_fps: 24
   detector:
     _target_: modules.detector.yolo_detector.YoloDetector
-    model_path: './assets/yolo11n.pt'
+    model_path: './assets/yolo11s.pt'
     threshold: 0.7
   visualizer:
     _target_: modules.visualizers.opencv_visualizer.OpenCVVisualizer
