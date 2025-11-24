@@ -21,7 +21,6 @@ class ZoneConfigurator:
             cv2.imshow('Drawing', self._frame)
             cv2.setMouseCallback('Drawing', self.mouse_callback)
             key = cv2.waitKey(0)
-            print(key)
             if key == ord('q'):
                 break
             self.update_image()
